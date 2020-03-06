@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DataTier.Entities.Concrete.Enums
 {
-    public enum SettlementType
+    public class SettlementType
     {
-        Prepayment,
-        Postpay
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
