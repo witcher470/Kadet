@@ -41,9 +41,11 @@ namespace DataTier.Entities.Concrete
         public CraneManipulatorStatus CraneManipulatorStatus { get; set; }
         public Service AnotherServices {get;set;}
         public ICollection<Order> Orders { get; set; }
+        public ICollection<ContractorStatus> ContractorStatuses { get; set; }
         public Contractor()
         {
             Orders = new List<Order>();
+            ContractorStatuses = new List<ContractorStatus>();
         }
     }
 }
