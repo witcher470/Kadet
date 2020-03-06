@@ -70,7 +70,11 @@ namespace DataTier.Entities.Concrete
         public string EmployerSecondName { get; set; }
         [Required(ErrorMessage = "Введите отчество сотрудника ")]
         public string EmployerThirdName { get; set; }
-
+        public ICollection<CardStatus> CardStatuses { get; set; }
+        public Card()
+        {
+            CardStatuses = new List<CardStatus>();
+        }
       
     }
 }

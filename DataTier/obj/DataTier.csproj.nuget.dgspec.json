@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\witch\\source\\repos\\Kadet\\DataTier\\DataTier.csproj": {}
+    "C:\\Users\\Ведьмак\\Desktop\\Kadet\\DataTier\\DataTier.csproj": {}
   },
   "projects": {
-    "C:\\Users\\witch\\source\\repos\\Kadet\\DataTier\\DataTier.csproj": {
+    "C:\\Users\\Ведьмак\\Desktop\\Kadet\\DataTier\\DataTier.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\witch\\source\\repos\\Kadet\\DataTier\\DataTier.csproj",
+        "projectUniqueName": "C:\\Users\\Ведьмак\\Desktop\\Kadet\\DataTier\\DataTier.csproj",
         "projectName": "DataTier",
-        "projectPath": "C:\\Users\\witch\\source\\repos\\Kadet\\DataTier\\DataTier.csproj",
-        "packagesPath": "C:\\Users\\witch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\witch\\source\\repos\\Kadet\\DataTier\\obj\\",
+        "projectPath": "C:\\Users\\Ведьмак\\Desktop\\Kadet\\DataTier\\DataTier.csproj",
+        "packagesPath": "C:\\Users\\Ведьмак\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ведьмак\\Desktop\\Kadet\\DataTier\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\witch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ведьмак\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

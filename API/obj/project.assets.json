@@ -7206,23 +7206,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\witch\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Ведьмак\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\witch\\source\\repos\\Kadet\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Ведьмак\\Desktop\\Kadet\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\witch\\source\\repos\\Kadet\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\witch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\witch\\source\\repos\\Kadet\\API\\obj\\",
+      "projectPath": "C:\\Users\\Ведьмак\\Desktop\\Kadet\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Ведьмак\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ведьмак\\Desktop\\Kadet\\API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\witch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ведьмак\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7235,8 +7231,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\witch\\source\\repos\\Kadet\\DataTier\\DataTier.csproj": {
-              "projectPath": "C:\\Users\\witch\\source\\repos\\Kadet\\DataTier\\DataTier.csproj"
+            "C:\\Users\\Ведьмак\\Desktop\\Kadet\\DataTier\\DataTier.csproj": {
+              "projectPath": "C:\\Users\\Ведьмак\\Desktop\\Kadet\\DataTier\\DataTier.csproj"
             }
           }
         }
