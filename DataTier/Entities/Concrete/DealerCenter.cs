@@ -45,11 +45,14 @@ namespace DataTier.Entities.Concrete
         public ICollection<ServiceStation> ServiceStations { get; set; }
         public ICollection<Fillial> Fillials { get; set; }
         public ICollection<DealerCenterStatus> DealerCenterStatuses { get; set; }
+        public ICollection<HasFillial> HasFillials { get; set; }
+        
         public DealerCenter()
         {
             Fillials = new List<Fillial>();
             ServiceStations = new List<ServiceStation>();
             DealerCenterStatuses = new List<DealerCenterStatus>();
+            HasFillials = new List<HasFillial>();
         }
 
 

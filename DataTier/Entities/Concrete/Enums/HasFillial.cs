@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DataTier.Entities.Concrete
 {
-    public enum HasFillial
+    public class HasFillial
     {
-        yes,
-        no
+        public int Id { get; set; }
+        public string  Name { get; set; }
     }
 }
