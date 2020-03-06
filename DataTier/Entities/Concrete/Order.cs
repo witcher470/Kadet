@@ -40,6 +40,11 @@ namespace DataTier.Entities.Concrete
         public int ServiceRating { get; set; }
         public string OperatorComment { get; set; }
         public string ClientReview { get; set; }
+        public ICollection<OrderStatus> OrderStatuses { get; set; }
+        public Order()
+        {
+            OrderStatuses = new List<OrderStatus>();
+        }
 
     }
 }
