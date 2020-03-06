@@ -46,6 +46,7 @@ namespace DataTier.Entities.Concrete
         public ICollection<Fillial> Fillials { get; set; }
         public ICollection<DealerCenterStatus> DealerCenterStatuses { get; set; }
         public ICollection<HasFillial> HasFillials { get; set; }
+        public ICollection<SettlementPeriod> SettlementPeriods { get; set; }
         
         public DealerCenter()
         {
@@ -53,6 +54,7 @@ namespace DataTier.Entities.Concrete
             ServiceStations = new List<ServiceStation>();
             DealerCenterStatuses = new List<DealerCenterStatus>();
             HasFillials = new List<HasFillial>();
+            SettlementPeriods = new List<SettlementPeriod>();
         }
 
 

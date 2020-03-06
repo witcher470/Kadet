@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DataTier.Entities.Concrete.Enums
 {
-    public enum SettlementPeriod
+    public class SettlementPeriod
     {
-        EveryWeek,
-        EveryMonth
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
