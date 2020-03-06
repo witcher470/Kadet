@@ -36,9 +36,11 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Введите SIP номер")]
         public string PhoneSIPNumber { get; set; }
         public ICollection<UserStatus> UserStatuses { get; set; }
+        public ICollection<Role> Roles { get; set; }
         public User()
         {
             UserStatuses = new List<UserStatus>();
+            Roles = new List<Role>();
         }
 
 

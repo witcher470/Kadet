@@ -4,9 +4,10 @@ using System.Text;
 
 namespace DataTier.Entities.Concrete
 {
-    public enum Role
+    public class Role
     {
-        Dispatcher,
-        SeniorDispatcher
+        public int Id { get; set; }
+        public string Name { get; set; }
+
     }
 }
