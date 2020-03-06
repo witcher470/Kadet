@@ -44,10 +44,12 @@ namespace DataTier.Entities.Concrete
         public string CooperatorPhoneNumber { get; set; }
         public ICollection<ServiceStation> ServiceStations { get; set; }
         public ICollection<Fillial> Fillials { get; set; }
+        public ICollection<DealerCenterStatus> DealerCenterStatuses { get; set; }
         public DealerCenter()
         {
             Fillials = new List<Fillial>();
             ServiceStations = new List<ServiceStation>();
+            DealerCenterStatuses = new List<DealerCenterStatus>();
         }
 
 
