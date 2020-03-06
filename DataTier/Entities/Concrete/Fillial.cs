@@ -15,5 +15,10 @@ namespace DataTier.Entities.Concrete
         public DealerCenter DealerCenter { get; set; }
         public string CarBrands { get; set; }
         public FillialStatus FillialStatus { get; set; }
+        public ICollection<FillialStatus> FillialStatuses { get; set; }
+        public Fillial()
+        {
+            FillialStatuses = new List<FillialStatus>();
+        }
     }
 }
