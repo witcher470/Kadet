@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DataTier.Entities.Concrete
 {
-    public enum CraneManipulatorStatus
+    public class CraneManipulatorStatus
     {
-        active,
-        inactive
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
