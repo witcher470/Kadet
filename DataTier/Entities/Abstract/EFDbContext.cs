@@ -18,8 +18,17 @@ namespace DataTier.Entities.Abstract
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=userappdb;Trusted_Connection=True;");
+            optionsBuilder.UseNpgsql("isilo.db.elephantsql.com;" +
+                "Port=5432;" +
+                "Database=cfioufwh;" +
+                "Username=cfioufwh;" +
+                "Password=ULOgASP7ZK16Dn9xPMGJsuYrR599gTne");
         }
+        public EFDbContext()
+        {
+            Database.EnsureCreated();
+        }
+
 
     }
 

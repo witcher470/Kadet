@@ -30,6 +30,7 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Укажите комиссию компании")]
         public int CompanyComission { get; set; }
         [Required(ErrorMessage = "Укажите серийный номер подрядчика")]
+        public Contractor ContractorId { get; set; }
         public string ContractorSerialNumber { get; set; }
         [Required(ErrorMessage = "Укажите номер телефона подрядчика")]
         public string ContractorPhoneNumber { get; set; }

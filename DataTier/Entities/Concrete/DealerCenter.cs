@@ -37,7 +37,7 @@ namespace DataTier.Entities.Concrete
         public string TechnicalAssistanceCardSeries  { get; set; }
         public string TypesAndFillingOfServicePackages { get; set; }
         public string MaterialsLink { get; set; }
-        public string Anotherproducts { get; set; }
+        public string AnotherProducts { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string CooperatorName { get; set; }

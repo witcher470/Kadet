@@ -71,11 +71,6 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Введите отчество сотрудника ")]
         public string EmployerThirdName { get; set; }
 
-        public List<Fillial> Filials { get; set; }
-
-        public Card()
-        {
-            Filials = new List<Fillial>();
-        }
+      
     }
 }

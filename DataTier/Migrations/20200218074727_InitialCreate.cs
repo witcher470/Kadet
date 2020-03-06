@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataTier.Migrations
 {
-    public partial class ERDiagramm : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -192,18 +192,11 @@ namespace DataTier.Migrations
                     Location = table.Column<string>(nullable: false),
                     DealercenterId = table.Column<int>(nullable: true),
                     CarBrands = table.Column<string>(nullable: true),
-                    FillialStatus = table.Column<int>(nullable: false),
-                    CardId = table.Column<int>(nullable: true)
+                    FillialStatus = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Fillials", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Fillials_Cards_CardId",
-                        column: x => x.CardId,
-                        principalTable: "Cards",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Fillials_DealerCenters_DealercenterId",
                         column: x => x.DealercenterId,
@@ -234,11 +227,6 @@ namespace DataTier.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fillials_CardId",
-                table: "Fillials",
-                column: "CardId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Fillials_DealercenterId",
                 table: "Fillials",
                 column: "DealercenterId");
@@ -251,6 +239,9 @@ namespace DataTier.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Cards");
+
             migrationBuilder.DropTable(
                 name: "Contractors");
 
@@ -265,9 +256,6 @@ namespace DataTier.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "Cards");
 
             migrationBuilder.DropTable(
                 name: "DealerCenters");

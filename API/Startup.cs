@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
 namespace API
@@ -29,8 +30,16 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<EFDbContext>(options => options.UseSqlServer(connection));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Kadet-Assisstance",
+                    Description = "A simple example ASP.NET Core Web API",
+
+                });
+            });
         }
 
 
@@ -48,12 +57,20 @@ namespace API
 
             app.UseAuthorization();
 
-            
+            app.UseSwagger();
+
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+           
         }
     }
 }
