@@ -4,11 +4,9 @@ using System.Text;
 
 namespace DataTier.Entities.Concrete
 {
-   public enum PaymentMethod
+   public class PaymentMethod
     {
-        Visa,
-        Qiwi,
-        Webmoney,
-        Cash
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -41,9 +41,11 @@ namespace DataTier.Entities.Concrete
         public string OperatorComment { get; set; }
         public string ClientReview { get; set; }
         public ICollection<OrderStatus> OrderStatuses { get; set; }
+        public ICollection<PaymentMethod> PaymentMethods { get; set; }
         public Order()
         {
             OrderStatuses = new List<OrderStatus>();
+            PaymentMethods = new List<PaymentMethod>();
         }
 
     }

@@ -44,6 +44,7 @@ namespace DataTier.Entities.Concrete
         public ICollection<ContractorStatus> ContractorStatuses { get; set; }
         public ICollection<CraneManipulatorStatus> CraneManipulatorStatuses { get; set; }
         public ICollection<TrolleysStatus> TrolleysStatuses { get; set; }
+        public ICollection<PaymentMethod> PaymentMethods { get; set; }
 
         public Contractor()
         {
@@ -51,6 +52,7 @@ namespace DataTier.Entities.Concrete
             ContractorStatuses = new List<ContractorStatus>();
             CraneManipulatorStatuses = new List<CraneManipulatorStatus>();
             TrolleysStatuses = new List<TrolleysStatus>();
+            PaymentMethods = new List<PaymentMethod>();
         }
     }
 }
