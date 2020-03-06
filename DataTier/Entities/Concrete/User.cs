@@ -35,6 +35,11 @@ namespace DataTier.Entities.Concrete
         public string Timezone { get; set; }
         [Required(ErrorMessage = "Введите SIP номер")]
         public string PhoneSIPNumber { get; set; }
+        public ICollection<UserStatus> UserStatuses { get; set; }
+        public User()
+        {
+            UserStatuses = new List<UserStatus>();
+        }
 
 
     }
