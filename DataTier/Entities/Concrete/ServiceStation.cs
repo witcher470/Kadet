@@ -11,5 +11,10 @@ namespace DataTier.Entities.Concrete
         public string Name { get; set; }
         public string Address { get; set; }
         public ServiceStationStatus ServiceStationStatus { get; set; }
+        public ICollection<ServiceStationStatus> ServiceStationStatuses { get; set; }
+        public ServiceStation()
+        {
+            ServiceStationStatuses = new List<ServiceStationStatus>();
+        }
     }
 }
