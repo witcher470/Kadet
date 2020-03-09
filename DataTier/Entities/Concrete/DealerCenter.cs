@@ -35,9 +35,7 @@ namespace DataTier.Entities.Concrete
         public DateTime DateTimeOfContract { get; set; }
         public SettlementPeriod SettlementPeriod { get; set; }
         public SettlementType SettlementType { get; set; }
-        public string CommercialResponsiblePersonsName {get;set;}
-        public string CommercialResponsiblePersonsPhoneNumber { get; set; }
-        public string CommercialResponsiblePersonsEmail { get; set; }
+        public CommercialResponsiblePerson CommercialResponsiblePerson { get; set; }
         public string AccountingResponsiblePersonsName { get; set; }
         public string AccountingResponsiblePersonsPhoneNumber { get; set; }
         public string AccountingResponsiblePersonsEmail { get; set; }
@@ -57,6 +55,7 @@ namespace DataTier.Entities.Concrete
         public ICollection<SettlementType> SettlementTypes { get; set; }
         public ICollection<Country> Countries { get; set; }
         public ICollection<CarBrand> CarBrands { get; set; }
+        public ICollection<CommercialResponsiblePerson> CommercialResponsiblePersons { get; set; }
         
         public DealerCenter()
         {
@@ -68,6 +67,7 @@ namespace DataTier.Entities.Concrete
             SettlementTypes = new List<SettlementType>();
             Countries = new List<Country>();
             CarBrands = new List<CarBrand>();
+            CommercialResponsiblePersons = new List<CommercialResponsiblePerson>();
         }
 
 
