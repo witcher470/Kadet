@@ -38,6 +38,7 @@ namespace DataTier.Entities.Abstract
         public DbSet<CarBrand> CarBrands { get; set; }  
         public DbSet<CommercialResponsiblePerson> CommercialResponsiblePersons { get; set; }
         public DbSet<AccountingResponsiblePerson> AccountingResponsiblePersons { get; set; }
+        public DbSet<LegalPerson> LegalPersons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

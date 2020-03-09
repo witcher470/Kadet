@@ -29,9 +29,7 @@ namespace DataTier.Entities.Concrete
         public DateTime WorkingHours { get; set; }
         public string BillingInformation { get; set; }
         [Required(ErrorMessage = "Укажите юридическое лицо ")]
-        public string LegalPesonName { get; set; }
-        public string LegalPesonBillingInformation { get; set; }
-        public string LegalPesonDirectorOrSignatory { get; set; }
+        public LegalPerson LegalPerson { get; set; }
         public DateTime DateTimeOfContract { get; set; }
         public SettlementPeriod SettlementPeriod { get; set; }
         public SettlementType SettlementType { get; set; }
@@ -56,8 +54,9 @@ namespace DataTier.Entities.Concrete
         public ICollection<Country> Countries { get; set; }
         public ICollection<CarBrand> CarBrands { get; set; }
         public ICollection<CommercialResponsiblePerson> CommercialResponsiblePersons { get; set; }
-        public ICollection<AccountingResponsiblePerson> AccountingResponsiblePersons { get; set;
-        }
+        public ICollection<AccountingResponsiblePerson> AccountingResponsiblePersons { get; set;}
+        public ICollection<LegalPerson> LegalPersons { get; set; }
+
 
 
         public DealerCenter()
@@ -72,6 +71,7 @@ namespace DataTier.Entities.Concrete
             CarBrands = new List<CarBrand>();
             CommercialResponsiblePersons = new List<CommercialResponsiblePerson>();
             AccountingResponsiblePersons = new List<AccountingResponsiblePerson>();
+            LegalPersons = new List<LegalPerson>();
         }
 
 
