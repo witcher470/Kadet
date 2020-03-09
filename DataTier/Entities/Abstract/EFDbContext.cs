@@ -37,6 +37,7 @@ namespace DataTier.Entities.Abstract
         public DbSet<Country> Countries { get; set; }
         public DbSet<CarBrand> CarBrands { get; set; }  
         public DbSet<CommercialResponsiblePerson> CommercialResponsiblePersons { get; set; }
+        public DbSet<AccountingResponsiblePerson> AccountingResponsiblePersons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

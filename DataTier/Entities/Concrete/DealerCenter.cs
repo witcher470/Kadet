@@ -35,10 +35,10 @@ namespace DataTier.Entities.Concrete
         public DateTime DateTimeOfContract { get; set; }
         public SettlementPeriod SettlementPeriod { get; set; }
         public SettlementType SettlementType { get; set; }
+        [Required(ErrorMessage = "Укажите CommercialResponsiblePerson ")]
         public CommercialResponsiblePerson CommercialResponsiblePerson { get; set; }
-        public string AccountingResponsiblePersonsName { get; set; }
-        public string AccountingResponsiblePersonsPhoneNumber { get; set; }
-        public string AccountingResponsiblePersonsEmail { get; set; }
+        [Required(ErrorMessage = "Укажите AccountingResponsiblePerson ")]
+        public AccountingResponsiblePerson AccountingResponsiblePerson { get; set; }
         public string TechnicalAssistanceCardSeries  { get; set; }
         public string TypesAndFillingOfServicePackages { get; set; }
         public string MaterialsLink { get; set; }
@@ -56,7 +56,10 @@ namespace DataTier.Entities.Concrete
         public ICollection<Country> Countries { get; set; }
         public ICollection<CarBrand> CarBrands { get; set; }
         public ICollection<CommercialResponsiblePerson> CommercialResponsiblePersons { get; set; }
-        
+        public ICollection<AccountingResponsiblePerson> AccountingResponsiblePersons { get; set;
+        }
+
+
         public DealerCenter()
         {
             Fillials = new List<Fillial>();
@@ -68,6 +71,7 @@ namespace DataTier.Entities.Concrete
             Countries = new List<Country>();
             CarBrands = new List<CarBrand>();
             CommercialResponsiblePersons = new List<CommercialResponsiblePerson>();
+            AccountingResponsiblePersons = new List<AccountingResponsiblePerson>();
         }
 
 
