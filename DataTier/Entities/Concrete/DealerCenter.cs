@@ -21,7 +21,7 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Укажите номер дома, в котором расположен дилерский центр")]
         public string HomeNumber { get; set; }
         [Required(ErrorMessage = "Укажите марки машин, которые продаёт дилерский центр")]
-        public string CarBrands { get; set; }
+        public CarBrand CarBrand { get; set; }
         public DealerCenterStatus DealerCenterStatus { get; set; }
         public string Website { get; set; }
         [Required(ErrorMessage = "Укажите номер телефона дилерского центра")]
@@ -56,6 +56,7 @@ namespace DataTier.Entities.Concrete
         public ICollection<SettlementPeriod> SettlementPeriods { get; set; }
         public ICollection<SettlementType> SettlementTypes { get; set; }
         public ICollection<Country> Countries { get; set; }
+        public ICollection<CarBrand> CarBrands { get; set; }
         
         public DealerCenter()
         {
@@ -66,6 +67,7 @@ namespace DataTier.Entities.Concrete
             SettlementPeriods = new List<SettlementPeriod>();
             SettlementTypes = new List<SettlementType>();
             Countries = new List<Country>();
+            CarBrands = new List<CarBrand>();
         }
 
 

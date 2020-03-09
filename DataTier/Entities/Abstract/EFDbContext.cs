@@ -35,6 +35,7 @@ namespace DataTier.Entities.Abstract
         public DbSet<SettlementType> SettlementTypes { get; set; }
         public DbSet<ClientInfo> ClientInfos { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<CarBrand> CarBrands { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

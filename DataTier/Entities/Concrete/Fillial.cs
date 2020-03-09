@@ -13,12 +13,14 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Укажите расположение филлиала")]
         public string Location { get; set; }
         public DealerCenter DealerCenter { get; set; }
-        public string CarBrands { get; set; }
+        public CarBrand CarBrand { get; set; }
         public FillialStatus FillialStatus { get; set; }
         public ICollection<FillialStatus> FillialStatuses { get; set; }
+        public ICollection<CarBrand> CarBrands { get; set; }
         public Fillial()
         {
             FillialStatuses = new List<FillialStatus>();
+            CarBrands = new List<CarBrand>();
         }
     }
 }
