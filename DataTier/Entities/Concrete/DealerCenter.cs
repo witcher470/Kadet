@@ -12,8 +12,15 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Введите название дилерского центра ")]
         public string Name { get; set; }
         public HasFillial HasFillial { get; set; }
-        [Required(ErrorMessage = "Укажите расположение дилерского центра")]
-        public string Location { get; set; }
+        [Required(ErrorMessage = "Укажите страну, в которой расположен дилерский центр")]
+        public Country Country { get; set; }
+        [Required(ErrorMessage = "Укажите город, в котором расположен дилерский центр")]
+        public string City { get; set; }
+        [Required(ErrorMessage = "Укажите улицу, на которой расположен дилерский центр")]
+        public string Street { get; set; }
+        [Required(ErrorMessage = "Укажите номер дома, в котором расположен дилерский центр")]
+        public string HomeNumber { get; set; }
+        [Required(ErrorMessage = "Укажите марки машин, которые продаёт дилерский центр")]
         public string CarBrands { get; set; }
         public DealerCenterStatus DealerCenterStatus { get; set; }
         public string Website { get; set; }
@@ -48,6 +55,7 @@ namespace DataTier.Entities.Concrete
         public ICollection<HasFillial> HasFillials { get; set; }
         public ICollection<SettlementPeriod> SettlementPeriods { get; set; }
         public ICollection<SettlementType> SettlementTypes { get; set; }
+        public ICollection<Country> Countries { get; set; }
         
         public DealerCenter()
         {
@@ -57,6 +65,7 @@ namespace DataTier.Entities.Concrete
             HasFillials = new List<HasFillial>();
             SettlementPeriods = new List<SettlementPeriod>();
             SettlementTypes = new List<SettlementType>();
+            Countries = new List<Country>();
         }
 
 

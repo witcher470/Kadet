@@ -34,6 +34,7 @@ namespace DataTier.Entities.Abstract
         public DbSet<SettlementPeriod> SettlementPeriods { get; set; }
         public DbSet<SettlementType> SettlementTypes { get; set; }
         public DbSet<ClientInfo> ClientInfos { get; set; }
+        public DbSet<Country> Countries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -42,7 +43,7 @@ namespace DataTier.Entities.Abstract
                  "Database=cfioufwh;" +
                  "Username=cfioufwh;" +
                  "Password=ULOgASP7ZK16Dn9xPMGJsuYrR599gTne"); */
-            Server = localhost\SQLEXPRESS; Database = master; Trusted_Connection = True;
+            //Server = localhost\SQLEXPRESS; Database = master; Trusted_Connection = True;
         }
         public EFDbContext()
         {
