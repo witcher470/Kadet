@@ -10,13 +10,8 @@ namespace DataTier.Entities.Concrete
     {
         public int Id { get; set; }
         public DateTime DateTimeOrdered { get; set; }
-        [Required(ErrorMessage = "Введите имя клиента ")]
-        public int ClientFirstName { get; set; }
-        [Required(ErrorMessage = "Введите фамилию клиента ")]
-        public int ClientSecondName { get; set; }
-        [Required(ErrorMessage = "Введите отчество клиента ")]
-        public int ClientThirdName { get; set; }
-        [Required(ErrorMessage = "Введите номер карты клиента ")]
+        [Required(ErrorMessage = "Введите данные клиента ")]
+        public ClientInfo ClientInfo { get; set; }
         public string TechnicalAssistanceCardNumber { get; set; }
         public string Location { get; set; }
         public string PointOfDeparture { get; set; }
@@ -29,11 +24,8 @@ namespace DataTier.Entities.Concrete
         public int ServicesCostForContractor { get; set; }
         [Required(ErrorMessage = "Укажите комиссию компании")]
         public int CompanyComission { get; set; }
-        [Required(ErrorMessage = "Укажите серийный номер подрядчика")]
-        public Contractor ContractorId { get; set; }
-        public string ContractorSerialNumber { get; set; }
-        [Required(ErrorMessage = "Укажите номер телефона подрядчика")]
-        public string ContractorPhoneNumber { get; set; }
+        [Required(ErrorMessage = "Укажите  подрядчика")]
+        public Contractor Contractor { get; set; }
         public DateTime ServiceTime { get; set; }
         public OrderStatus OrderStatus { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
@@ -42,10 +34,12 @@ namespace DataTier.Entities.Concrete
         public string ClientReview { get; set; }
         public ICollection<OrderStatus> OrderStatuses { get; set; }
         public ICollection<PaymentMethod> PaymentMethods { get; set; }
+        public ICollection<Contractor> Contractors { get; set; }
         public Order()
         {
             OrderStatuses = new List<OrderStatus>();
             PaymentMethods = new List<PaymentMethod>();
+            Contractors = new List<Contractor>();
         }
 
     }
