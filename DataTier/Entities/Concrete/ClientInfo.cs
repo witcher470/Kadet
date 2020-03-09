@@ -21,11 +21,16 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Введите номер телефона клиента клиента ")]
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Введите модель машины клиента ")]
-        public string CarModel { get; set; }
+        public CarBrand CarBrand { get; set; }
         [Required(ErrorMessage = "Введите государственный номер автомобиля клиента ")]
         public string StateNumber { get; set; }
         [Required(ErrorMessage = "Введите регион обслуживания клиента ")]
         public string Region { get; set; }
+        public ICollection<CarBrand> CarBrands { get; set; }
+        public ClientInfo()
+        {
+            CarBrands = new List<CarBrand>();
+        }
 
 
     }
