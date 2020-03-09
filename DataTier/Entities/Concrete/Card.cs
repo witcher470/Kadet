@@ -14,22 +14,6 @@ namespace DataTier.Entities.Concrete
         [RegularExpression(@"/[^a-zA-Z0-9\-\_]{4,16}/$", ErrorMessage = "Некорректный номер телефона")]
         public int CardNumber { get; set; }
         [Required(ErrorMessage = "Введите стоимость карты")]
-        public int CardCost { get; set; }
-        [Required(ErrorMessage = "Введите имя клиента ")]
-        public string ClientFristName { get; set; }
-        [Required(ErrorMessage = "Введите фамилию клиента ")]
-        public string ClientSecondName { get; set; }
-        [Required(ErrorMessage = "Введите отчество клиента ")]
-        public string ClientThirdName { get; set; }
-        [Required(ErrorMessage = "Введите Email клиента ")]
-        public string Email { get; set; }
-        [Required(ErrorMessage = "Введите номер телефона клиента клиента ")]
-        public string PhoneNumber { get; set; }
-        [Required(ErrorMessage = "Введите модель машины клиента ")]
-        public string CarModel { get; set; }
-        [Required(ErrorMessage = "Введите государственный номер автомобиля клиента ")]
-        public string StateNumber { get; set; }
-        [Required(ErrorMessage = "Введите регион обслуживания клиента ")]
         public string Region { get; set; }
         [Required(ErrorMessage = "Укажите срок действия карты ")]
         public DateTime Duration { get; set; }
@@ -71,8 +55,10 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Введите отчество сотрудника ")]
         public string EmployerThirdName { get; set; }
         public ICollection<CardStatus> CardStatuses { get; set; }
+        public ICollection<ClientInfo> ClientInfos { get; set; }
         public Card()
         {
+            ClientInfos = new List<ClientInfo>();
             CardStatuses = new List<CardStatus>();
         }
       
