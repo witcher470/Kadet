@@ -14,11 +14,12 @@ namespace DataTier.Entities.Concrete
         [RegularExpression(@"/[^a-zA-Z0-9\-\_]{4,16}/$", ErrorMessage = "Некорректный номер телефона")]
         public int CardNumber { get; set; }
         [Required(ErrorMessage = "Введите стоимость карты")]
-        public string Region { get; set; }
+        public int CardCost { get; set; }
+        public ClientInfo ClientInfo { get; set; }
         [Required(ErrorMessage = "Укажите срок действия карты ")]
         public DateTime Duration { get; set; }
         [Required(ErrorMessage = "Введите VIN ")]
-        public int VIN { get; set; }
+        public int VIN { get; set; }        
         public string Color { get; set; }
         [Required(ErrorMessage = "Укажите доступные службы")]
         public Service Services { get; set; }

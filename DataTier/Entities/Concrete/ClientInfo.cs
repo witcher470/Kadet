@@ -1,7 +1,8 @@
-﻿using System;
+﻿using DataTier.Entities.Concrete.Enums;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 using Xunit.Sdk;
 
 namespace DataTier.Entities.Concrete
@@ -9,7 +10,6 @@ namespace DataTier.Entities.Concrete
     public class ClientInfo
     {
         public int Id { get; set; }
-        public int CardCost { get; set; }
         [Required(ErrorMessage = "Введите имя клиента ")]
         public string ClientFristName { get; set; }
         [Required(ErrorMessage = "Введите фамилию клиента ")]
@@ -25,5 +25,8 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Введите государственный номер автомобиля клиента ")]
         public string StateNumber { get; set; }
         [Required(ErrorMessage = "Введите регион обслуживания клиента ")]
+        public string Region { get; set; }
+
+
     }
-}
+}    
