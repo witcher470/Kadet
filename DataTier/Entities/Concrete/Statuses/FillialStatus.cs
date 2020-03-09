@@ -4,9 +4,10 @@ using System.Text;
 
 namespace DataTier.Entities.Concrete
 {
-    public class FillialStatus
+    public enum FillialStatus
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        active,
+        inactive
+
     }
 }

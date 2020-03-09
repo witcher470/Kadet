@@ -4,9 +4,10 @@ using System.Text;
 
 namespace DataTier.Entities.Concrete
 {
-    public class OrderStatus
+    public enum OrderStatus
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        active,
+        inactive
+
     }
 }

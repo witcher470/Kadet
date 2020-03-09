@@ -20,7 +20,7 @@ namespace API.Controllers
             _context = context;
         }
 
-        [HttpGet]
+      /*  [HttpGet]
         public IActionResult GetActiveCards()
         {
             var cards = _context.Cards.Where(cs => cs.CardStatus == CardStatus.active)
@@ -61,6 +61,6 @@ namespace API.Controllers
                   });
             return Ok(cards);
 
-        }
+        }*/
     }
 }

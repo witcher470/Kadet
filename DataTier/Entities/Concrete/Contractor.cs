@@ -40,18 +40,10 @@ namespace DataTier.Entities.Concrete
         [Required(ErrorMessage = "Укажите, есть ли в наличии эвакуаторы с краном-манипулятором")]
         public CraneManipulatorStatus CraneManipulatorStatus { get; set; }
         public Service AnotherServices {get;set;}
-        public ICollection<Order> Orders { get; set; }
-        public ICollection<ContractorStatus> ContractorStatuses { get; set; }
-        public ICollection<CraneManipulatorStatus> CraneManipulatorStatuses { get; set; }
-        public ICollection<TrolleysStatus> TrolleysStatuses { get; set; }
         public ICollection<PaymentMethod> PaymentMethods { get; set; }
 
         public Contractor()
         {
-            Orders = new List<Order>();
-            ContractorStatuses = new List<ContractorStatus>();
-            CraneManipulatorStatuses = new List<CraneManipulatorStatus>();
-            TrolleysStatuses = new List<TrolleysStatus>();
             PaymentMethods = new List<PaymentMethod>();
         }
     }

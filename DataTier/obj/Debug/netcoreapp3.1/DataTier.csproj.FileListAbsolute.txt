@@ -8,3 +8,13 @@ C:\Users\witch\source\repos\Kadet\DataTier\bin\Debug\netcoreapp3.1\DataTier.runt
 C:\Users\witch\source\repos\Kadet\DataTier\bin\Debug\netcoreapp3.1\DataTier.pdb
 C:\Users\witch\source\repos\Kadet\DataTier\obj\Debug\netcoreapp3.1\DataTier.dll
 C:\Users\witch\source\repos\Kadet\DataTier\obj\Debug\netcoreapp3.1\DataTier.pdb
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\obj\Debug\netcoreapp3.1\DataTier.csprojAssemblyReference.cache
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\obj\Debug\netcoreapp3.1\DataTier.AssemblyInfoInputs.cache
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\obj\Debug\netcoreapp3.1\DataTier.AssemblyInfo.cs
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\obj\Debug\netcoreapp3.1\DataTier.dll
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\obj\Debug\netcoreapp3.1\DataTier.pdb
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Debug\netcoreapp3.1\DataTier.deps.json
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Debug\netcoreapp3.1\DataTier.runtimeconfig.json
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Debug\netcoreapp3.1\DataTier.runtimeconfig.dev.json
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Debug\netcoreapp3.1\DataTier.dll
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Debug\netcoreapp3.1\DataTier.pdb

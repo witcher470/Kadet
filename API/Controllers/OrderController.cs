@@ -19,7 +19,7 @@ namespace API.Controllers
             _context = context;
         }
 
-        [HttpGet]
+      /*  [HttpGet]
         public IActionResult GetActiveOrders()
         {
             var orders = _context.Orders.Where(os => os.OrderStatus == OrderStatus.active)
@@ -51,6 +51,6 @@ namespace API.Controllers
                   });
             return Ok(orders);
 
-        }
+        }*/
     }
 }

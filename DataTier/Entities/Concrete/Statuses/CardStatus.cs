@@ -4,10 +4,10 @@ using System.Text;
 
 namespace DataTier.Entities.Concrete
 {
-    public class CardStatus
+    public enum CardStatus
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        active,
+        inactive
 
     }
 }

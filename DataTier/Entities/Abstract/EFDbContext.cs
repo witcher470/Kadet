@@ -17,16 +17,6 @@ namespace DataTier.Entities.Abstract
         public DbSet<Order> Orders { get; set; }
         public DbSet<ServiceStation> ServiceStations { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<CardStatus> CardStatuses {get;set;}
-        public DbSet<ContractorStatus> ContractorStatuses { get; set; }
-        public DbSet<CraneManipulatorStatus> CraneManipulatorStatuses { get; set; }
-        public DbSet<DealerCenterStatus> DealerCenterStatuses { get; set; }
-        public DbSet<FillialStatus> FillialStatuses { get; set; }
-        public DbSet<OrderStatus> OrderStatuses { get; set; }
-        public DbSet<ServiceStationStatus> ServiceStationStatuses { get; set; }
-        public DbSet<ServiceStatus> ServiceStatuses { get; set; }
-        public DbSet<TrolleysStatus> TrolleysStatuses { get; set; }
-        public DbSet<UserStatus> UserStatuses { get; set; }
         public DbSet<HasFillial> HasFillials { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -40,20 +30,14 @@ namespace DataTier.Entities.Abstract
         public DbSet<AccountingResponsiblePerson> AccountingResponsiblePersons { get; set; }
         public DbSet<LegalPerson> LegalPersons { get; set; }
 
+        /*  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+          {
+              optionsBuilder.UseSqlServer("Server=(local)\\sqlexpress;Database=KadetDb;Trusted_Connection=true;MultipleActiveResultSets=True");
+          }*/
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            /* optionsBuilder.UseNpgsql("isilo.db.elephantsql.com;" +
-                 "Port=5432;" +
-                 "Database=cfioufwh;" +
-                 "Username=cfioufwh;" +
-                 "Password=ULOgASP7ZK16Dn9xPMGJsuYrR599gTne"); */
-            //Server = localhost\SQLEXPRESS; Database = master; Trusted_Connection = True;
+            optionsBuilder.UseNpgsql("Host=drona.db.elephantsql.com;Port=5432;Database=qcpcclyr; Username=qcpcclyr;Password=jQVFgyTjSnKKs9u9bZjh2P1l6u3tfukj;");
         }
-        public EFDbContext()
-        {
-            Database.EnsureCreated();
-        }
-
 
     }
 

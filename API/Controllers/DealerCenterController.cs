@@ -20,7 +20,7 @@ namespace API.Controllers
             _context = context;
         }
 
-        [HttpGet]
+      /*  [HttpGet]
         public IActionResult GetActiveDealerCenters()
         {
             var dealerCenters = _context.DealerCenters.Where(dcs => dcs.DealerCenterStatus == DealerCenterStatus.active)
@@ -62,6 +62,6 @@ namespace API.Controllers
                   });
             return Ok(dealerCenters);
 
-        }
+        }*/
     }
 }

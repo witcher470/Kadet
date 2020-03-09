@@ -20,7 +20,7 @@ namespace API.Controllers
             _context = context;
         }
 
-        [HttpGet]
+     /*   [HttpGet]
         public IActionResult GetActiveContractors()
         {
             var contractors = _context.Contractors.Where(cs => cs.ContractorStatus == ContractorStatus.active)
@@ -52,6 +52,6 @@ namespace API.Controllers
                   });
             return Ok(contractors);
 
-        }
+        }*/
     }
 }

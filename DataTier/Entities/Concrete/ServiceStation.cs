@@ -13,13 +13,10 @@ namespace DataTier.Entities.Concrete
         public string City { get; set; }
         public string Street { get; set; }
         public string HomeNumber { get; set; }
-        public ServiceStationStatus ServiceStationStatus { get; set; }
-        public ICollection<ServiceStationStatus> ServiceStationStatuses { get; set; }
         public ICollection<Country> Countries { get; set; }
 
         public ServiceStation()
         {
-            ServiceStationStatuses = new List<ServiceStationStatus>();
             Countries = new List<Country>();
         }
     }

@@ -3,8 +3,8 @@ using System;
 using DataTier.Entities.Abstract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DataTier.Migrations
 {
@@ -15,442 +15,749 @@ namespace DataTier.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.1")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.AccountingResponsiblePerson", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DealerCenterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DealerCenterId");
+
+                    b.ToTable("AccountingResponsiblePersons");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.CarBrand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ClientInfoId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DealerCenterId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FillialId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientInfoId");
+
+                    b.HasIndex("DealerCenterId");
+
+                    b.HasIndex("FillialId");
+
+                    b.ToTable("CarBrands");
+                });
 
             modelBuilder.Entity("DataTier.Entities.Concrete.Card", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("ActionStartDate")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("CarModel")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CardAppeal")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CardCost")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("CardNumber")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("CardStatus")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
-                    b.Property<string>("ClientFristName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ClientSecondName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ClientThirdName")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int?>("ClientInfoId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Color")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateOfContractWithClient")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateOfContractWithKadet")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DeactivationDate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Duration")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("EmployerFirstName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmployerSecondName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmployerThirdName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ManagerFirstName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ManagerSecondName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ManagerThirdName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumberOfContractWithClient")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("NumberOfContractWithKadet")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Region")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("int");
 
                     b.Property<string>("SellerFirstName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SellerSecondName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SellerThirdName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Services")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("StateNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("ServicesId")
+                        .HasColumnType("int");
 
                     b.Property<int>("VIN")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClientInfoId");
+
+                    b.HasIndex("ServicesId");
+
                     b.ToTable("Cards");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.ClientInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarBrandId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CardId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClientFristName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientSecondName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientThirdName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StateNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarBrandId");
+
+                    b.HasIndex("CardId");
+
+                    b.ToTable("ClientInfos");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.CommercialResponsiblePerson", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DealerCenterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DealerCenterId");
+
+                    b.ToTable("CommercialResponsiblePersons");
                 });
 
             modelBuilder.Entity("DataTier.Entities.Concrete.Contractor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AnotherPhoneNumber")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("AnotherServices")
-                        .HasColumnType("integer");
+                    b.Property<int?>("AnotherServicesId")
+                        .HasColumnType("int");
 
                     b.Property<int>("CarryingCapacityOfTrucks")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("Cities")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ContractorStatus")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("CraneManipulatorStatus")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Login")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumberOfTrucks")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
-                    b.Property<int>("PaymentMethod")
-                        .HasColumnType("integer");
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PaymentMethodId")
+                        .HasColumnType("int");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PlatformLenght")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("PriceList")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Rating")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("SecondName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Services")
-                        .HasColumnType("integer");
+                    b.Property<int?>("ServicesId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ThirdName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TrolleysStatus")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("WorkTime")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("YearOfManufactureOfTrucks")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AnotherServicesId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("PaymentMethodId");
+
+                    b.HasIndex("ServicesId");
+
                     b.ToTable("Contractors");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DealerCenterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ServiceStationId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DealerCenterId");
+
+                    b.HasIndex("ServiceStationId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("DataTier.Entities.Concrete.DealerCenter", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AccountingResponsiblePersonsEmail")
-                        .HasColumnType("text");
-
-                    b.Property<string>("AccountingResponsiblePersonsName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("AccountingResponsiblePersonsPhoneNumber")
-                        .HasColumnType("text");
+                    b.Property<int>("AccountingResponsiblePersonId")
+                        .HasColumnType("int");
 
                     b.Property<string>("AnotherProducts")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BillingInformation")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CarBrands")
-                        .HasColumnType("text");
+                    b.Property<int>("CarBrandId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("CommercialResponsiblePersonsEmail")
-                        .HasColumnType("text");
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CommercialResponsiblePersonsName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("CommercialResponsiblePersonsPhoneNumber")
-                        .HasColumnType("text");
+                    b.Property<int>("CommercialResponsiblePersonId")
+                        .HasColumnType("int");
 
                     b.Property<string>("CooperatorName")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CooperatorPhoneNumber")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateTimeOfContract")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("DealerCenterStatus")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
-                    b.Property<int>("HasFillial")
-                        .HasColumnType("integer");
+                    b.Property<int?>("HasFillialId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("LegalPesonBillingInformation")
-                        .HasColumnType("text");
-
-                    b.Property<string>("LegalPesonDirectorOrSignatory")
-                        .HasColumnType("text");
-
-                    b.Property<string>("LegalPesonName")
+                    b.Property<string>("HomeNumber")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("LegalPersonId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Login")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaterialsLink")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ReceptionPhoneNumber")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SettlementPeriod")
-                        .HasColumnType("integer");
+                    b.Property<int?>("SettlementPeriodId")
+                        .HasColumnType("int");
 
-                    b.Property<int>("SettlementType")
-                        .HasColumnType("integer");
+                    b.Property<int?>("SettlementTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TechnicalAssistanceCardSeries")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypesAndFillingOfServicePackages")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Website")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("WorkingHours")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AccountingResponsiblePersonId");
+
+                    b.HasIndex("CarBrandId");
+
+                    b.HasIndex("CommercialResponsiblePersonId");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("HasFillialId");
+
+                    b.HasIndex("LegalPersonId");
+
+                    b.HasIndex("SettlementPeriodId");
+
+                    b.HasIndex("SettlementTypeId");
+
                     b.ToTable("DealerCenters");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Enums.Service", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ServiceStatus")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Enums.SettlementPeriod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DealerCenterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DealerCenterId");
+
+                    b.ToTable("SettlementPeriods");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Enums.SettlementType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DealerCenterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DealerCenterId");
+
+                    b.ToTable("SettlementTypes");
                 });
 
             modelBuilder.Entity("DataTier.Entities.Concrete.Fillial", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CarBrands")
-                        .HasColumnType("text");
+                    b.Property<int?>("CarBrandId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("DealerCenterId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("FillialStatus")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CarBrandId");
 
                     b.HasIndex("DealerCenterId");
 
                     b.ToTable("Fillials");
                 });
 
+            modelBuilder.Entity("DataTier.Entities.Concrete.HasFillial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DealerCenterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DealerCenterId");
+
+                    b.ToTable("HasFillials");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.LegalPerson", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BillingInformation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DealerCenterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DirectorOrSignatory")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DealerCenterId");
+
+                    b.ToTable("LegalPersons");
+                });
+
             modelBuilder.Entity("DataTier.Entities.Concrete.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClientFirstName")
-                        .HasColumnType("integer");
+                    b.Property<int>("ClientInfoId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ClientReview")
-                        .HasColumnType("text");
-
-                    b.Property<int>("ClientSecondName")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ClientThirdName")
-                        .HasColumnType("integer");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CompanyComission")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
-                    b.Property<int>("ContractorIdId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("ContractorPhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ContractorSerialNumber")
-                        .HasColumnType("text");
+                    b.Property<int>("ContractorId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateTimeOrdered")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Location")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OperatorComment")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("OrderStatus")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
-                    b.Property<int>("PaymentMethod")
-                        .HasColumnType("integer");
+                    b.Property<int?>("PaymentMethodId")
+                        .HasColumnType("int");
 
                     b.Property<string>("PointOfDeparture")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PointOfDestination")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ServiceRating")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ServiceTime")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<int>("Services")
-                        .HasColumnType("integer");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ServicesCostForClient")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("ServicesCostForContractor")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicesId")
+                        .HasColumnType("int");
 
                     b.Property<string>("TechnicalAssistanceCardNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ContractorIdId");
+                    b.HasIndex("ClientInfoId");
+
+                    b.HasIndex("ContractorId");
+
+                    b.HasIndex("PaymentMethodId");
+
+                    b.HasIndex("ServicesId");
 
                     b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.PaymentMethod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ContractorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContractorId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("PaymentMethods");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("DataTier.Entities.Concrete.ServiceStation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address")
-                        .HasColumnType("text");
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CountryId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("DealerCenterId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
+
+                    b.Property<string>("HomeNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ServiceStationStatus")
-                        .HasColumnType("integer");
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.HasIndex("DealerCenterId");
 
@@ -461,89 +768,313 @@ namespace DataTier.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AnotherLanguage")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Login")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MainLanguage")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneSIPNumber")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("integer");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.Property<string>("SecondName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("StartWorkDate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ThirdName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Timezone")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserStatus")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("DataTier.Entities.Concrete.AccountingResponsiblePerson", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.DealerCenter", null)
+                        .WithMany("AccountingResponsiblePersons")
+                        .HasForeignKey("DealerCenterId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.CarBrand", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.ClientInfo", null)
+                        .WithMany("CarBrands")
+                        .HasForeignKey("ClientInfoId");
+
+                    b.HasOne("DataTier.Entities.Concrete.DealerCenter", null)
+                        .WithMany("CarBrands")
+                        .HasForeignKey("DealerCenterId");
+
+                    b.HasOne("DataTier.Entities.Concrete.Fillial", null)
+                        .WithMany("CarBrands")
+                        .HasForeignKey("FillialId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Card", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.ClientInfo", "ClientInfo")
+                        .WithMany()
+                        .HasForeignKey("ClientInfoId");
+
+                    b.HasOne("DataTier.Entities.Concrete.Enums.Service", "Services")
+                        .WithMany()
+                        .HasForeignKey("ServicesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.ClientInfo", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.CarBrand", "CarBrand")
+                        .WithMany()
+                        .HasForeignKey("CarBrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.Card", null)
+                        .WithMany("ClientInfos")
+                        .HasForeignKey("CardId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.CommercialResponsiblePerson", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.DealerCenter", null)
+                        .WithMany("CommercialResponsiblePersons")
+                        .HasForeignKey("DealerCenterId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Contractor", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.Enums.Service", "AnotherServices")
+                        .WithMany()
+                        .HasForeignKey("AnotherServicesId");
+
+                    b.HasOne("DataTier.Entities.Concrete.Order", null)
+                        .WithMany("Contractors")
+                        .HasForeignKey("OrderId");
+
+                    b.HasOne("DataTier.Entities.Concrete.PaymentMethod", "PaymentMethod")
+                        .WithMany()
+                        .HasForeignKey("PaymentMethodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.Enums.Service", "Services")
+                        .WithMany()
+                        .HasForeignKey("ServicesId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Country", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.DealerCenter", null)
+                        .WithMany("Countries")
+                        .HasForeignKey("DealerCenterId");
+
+                    b.HasOne("DataTier.Entities.Concrete.ServiceStation", null)
+                        .WithMany("Countries")
+                        .HasForeignKey("ServiceStationId");
+
+                    b.HasOne("DataTier.Entities.Concrete.User", null)
+                        .WithMany("Countries")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.DealerCenter", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.AccountingResponsiblePerson", "AccountingResponsiblePerson")
+                        .WithMany()
+                        .HasForeignKey("AccountingResponsiblePersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.CarBrand", "CarBrand")
+                        .WithMany()
+                        .HasForeignKey("CarBrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.CommercialResponsiblePerson", "CommercialResponsiblePerson")
+                        .WithMany()
+                        .HasForeignKey("CommercialResponsiblePersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.HasFillial", "HasFillial")
+                        .WithMany()
+                        .HasForeignKey("HasFillialId");
+
+                    b.HasOne("DataTier.Entities.Concrete.LegalPerson", "LegalPerson")
+                        .WithMany()
+                        .HasForeignKey("LegalPersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.Enums.SettlementPeriod", "SettlementPeriod")
+                        .WithMany()
+                        .HasForeignKey("SettlementPeriodId");
+
+                    b.HasOne("DataTier.Entities.Concrete.Enums.SettlementType", "SettlementType")
+                        .WithMany()
+                        .HasForeignKey("SettlementTypeId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Enums.SettlementPeriod", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.DealerCenter", null)
+                        .WithMany("SettlementPeriods")
+                        .HasForeignKey("DealerCenterId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Enums.SettlementType", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.DealerCenter", null)
+                        .WithMany("SettlementTypes")
+                        .HasForeignKey("DealerCenterId");
+                });
+
             modelBuilder.Entity("DataTier.Entities.Concrete.Fillial", b =>
                 {
+                    b.HasOne("DataTier.Entities.Concrete.CarBrand", "CarBrand")
+                        .WithMany()
+                        .HasForeignKey("CarBrandId");
+
                     b.HasOne("DataTier.Entities.Concrete.DealerCenter", "DealerCenter")
                         .WithMany("Fillials")
                         .HasForeignKey("DealerCenterId");
                 });
 
+            modelBuilder.Entity("DataTier.Entities.Concrete.HasFillial", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.DealerCenter", null)
+                        .WithMany("HasFillials")
+                        .HasForeignKey("DealerCenterId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.LegalPerson", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.DealerCenter", null)
+                        .WithMany("LegalPersons")
+                        .HasForeignKey("DealerCenterId");
+                });
+
             modelBuilder.Entity("DataTier.Entities.Concrete.Order", b =>
                 {
-                    b.HasOne("DataTier.Entities.Concrete.Contractor", "ContractorId")
-                        .WithMany("Orders")
-                        .HasForeignKey("ContractorIdId")
+                    b.HasOne("DataTier.Entities.Concrete.ClientInfo", "ClientInfo")
+                        .WithMany()
+                        .HasForeignKey("ClientInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.Contractor", "Contractor")
+                        .WithMany()
+                        .HasForeignKey("ContractorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.PaymentMethod", "PaymentMethod")
+                        .WithMany()
+                        .HasForeignKey("PaymentMethodId");
+
+                    b.HasOne("DataTier.Entities.Concrete.Enums.Service", "Services")
+                        .WithMany()
+                        .HasForeignKey("ServicesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("DataTier.Entities.Concrete.PaymentMethod", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.Contractor", null)
+                        .WithMany("PaymentMethods")
+                        .HasForeignKey("ContractorId");
+
+                    b.HasOne("DataTier.Entities.Concrete.Order", null)
+                        .WithMany("PaymentMethods")
+                        .HasForeignKey("OrderId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.Role", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.User", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("DataTier.Entities.Concrete.ServiceStation", b =>
                 {
+                    b.HasOne("DataTier.Entities.Concrete.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId");
+
                     b.HasOne("DataTier.Entities.Concrete.DealerCenter", null)
                         .WithMany("ServiceStations")
                         .HasForeignKey("DealerCenterId");
+                });
+
+            modelBuilder.Entity("DataTier.Entities.Concrete.User", b =>
+                {
+                    b.HasOne("DataTier.Entities.Concrete.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataTier.Entities.Concrete.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

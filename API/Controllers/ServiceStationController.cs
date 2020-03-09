@@ -19,7 +19,7 @@ namespace API.Controllers
             _context = context;
         }
 
-        [HttpGet]
+       /* [HttpGet]
         public IActionResult GetActiveFillials()
         {
             var serviceStations = _context.ServiceStations.Where(sts => sts.ServiceStationStatus == ServiceStationStatus.active)
@@ -33,6 +33,6 @@ namespace API.Controllers
                   });
             return Ok(serviceStations);
 
-        }
+        }*/
     }
 }

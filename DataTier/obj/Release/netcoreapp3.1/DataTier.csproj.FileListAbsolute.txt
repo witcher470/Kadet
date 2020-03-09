@@ -1,0 +1,9 @@
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Release\netcoreapp3.1\DataTier.deps.json
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Release\netcoreapp3.1\DataTier.runtimeconfig.json
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Release\netcoreapp3.1\DataTier.runtimeconfig.dev.json
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Release\netcoreapp3.1\DataTier.dll
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\bin\Release\netcoreapp3.1\DataTier.pdb
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\obj\Release\netcoreapp3.1\DataTier.AssemblyInfoInputs.cache
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\obj\Release\netcoreapp3.1\DataTier.AssemblyInfo.cs
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\obj\Release\netcoreapp3.1\DataTier.dll
+C:\Users\Ведьмак\Desktop\Kadet\DataTier\obj\Release\netcoreapp3.1\DataTier.pdb
